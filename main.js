@@ -11,3 +11,4 @@ class Question{
   }
 };
 const firstQuestion = new Question("Was ist der größte Berg der Erde?",['Mount Everest', 'Kangchendzönga', 'Annapurna']);
+const secondQuestion = new Question("Welches gehört zu den sieben Weltwunder?", ['Die Pyramiden von Gizeh','Eiffelturm', 'Brandenburger Tor']);
