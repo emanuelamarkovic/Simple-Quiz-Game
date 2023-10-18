@@ -5,3 +5,32 @@
     box-sizing: border-box;
 }
 
+body {
+    color: pink;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+main {
+  max-width: 75ch;
+  align-self: center;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.option {  
+    border: 2px solid pink;
+    border-radius: 5px;
+    padding: 0.3rem
+}
+.option:hover {
+    color: white;
+    background-color: rgba(124, 0, 68, 0.587);
+}
+button{
+    width: auto;
+    align-self: center;
+    padding: 0.5em;
+    border-radius: 1em;
+}
