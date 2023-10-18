@@ -6,3 +6,4 @@
   x A method to display the question and its options.
   - A method to check if the user's choice is correct.
 x Create instances of the Question class for at least three different quiz questions. Be creative with your questions and options.
+- Implement a way for users to answer the questions
