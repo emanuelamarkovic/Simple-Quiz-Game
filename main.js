@@ -10,4 +10,4 @@ class Question{
     return 0;
   }
 };
-
+const firstQuestion = new Question("Was ist der größte Berg der Erde?",['Mount Everest', 'Kangchendzönga', 'Annapurna']);
