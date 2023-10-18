@@ -4,7 +4,7 @@ class Question{
     this.options = options;
   }
   questionAndOptions(){
-    return `<div id=question>${this.text}</div> <div>${this.options}</div>` 
+    return `<div id=question>${this.text}</div> ${this.options.map(option => `<div>${option[0]}</div>`)}`
   }
   checkChoice(){ 
     return 0;
