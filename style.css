@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lilita+One&family=Lobster&family=Maven+Pro:wght@400;600&family=Open+Sans:ital,wght@1,300&family=Orbitron&display=swap');
+
 * {
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,7 +13,7 @@ header {
   width: 100%;
   height: 10vh;
   background-color: black;
-  color: pink;
+  color: yellow;
   border-bottom: 1px solid white;
   text-align: center;
 }
@@ -24,7 +26,7 @@ header h1 {
 
 main {
   background-color: black;
-  color: pink;
+  color: yellow;
   font-size: 1.5rem;
   height: 85vh;
   display: flex;
@@ -35,7 +37,7 @@ main {
 
 .shadowgradient {
   width: 60%;
-  height: 320px;
+  height: 420px;
 
   margin: 100px auto;
   background: linear-gradient(0deg, #000, #333);
@@ -67,7 +69,7 @@ main {
   top: -2px;
   left: -2px;
   background-size: 500%;
-  animation: wandernderFarbverlauf 30s linear infinite;
+  animation: rainbowBox 30s linear infinite;
 }
 
 .shadowgradient:after {
@@ -78,13 +80,18 @@ main {
   position: relative;
   z-index: 1;
   background-color: black;
-  color: pink;
+  color: white;
   font-size: 1.5rem;
-  height: 320px;
+  height: 420px;
   padding: 20px;
 }
 
-@keyframes wandernderFarbverlauf {
+.box div {
+  margin: 30px;
+  
+}
+
+@keyframes rainbowBox {
   0% {
     background-position: 0 0;
   }
@@ -97,19 +104,20 @@ main {
 }
 
 #startButton {
-  background-color: pink;
+  background-color: yellow;
   color: black;
   border: 1px solid black;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 30px 10px 30px;
   font-size: 1.5rem;
+  font-weight: bold;
   margin: 20px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 #startButton a:hover {
-  background-color: pink;
+  background-color: orange;
   color: black;
   font-size: 1.4 rem;
   text-decoration: none;
@@ -117,10 +125,11 @@ main {
 }
 
 footer {
-  background-color: pink;
+  background-color: yellow;
   color: black;
   align-items: center;
   font-size: 14px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   width: 100%;
