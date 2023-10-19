@@ -24,16 +24,22 @@ const thirdQuestion = new Question("Seit wann gibt es Bier?", [['Seit ca. 7000 v
 let currentQuestion = firstQuestion // need code to toggle
 const optionDivs = document.getElementsByClassName('option');
 const question = document.getElementById("question");
+const button = document.querySelector('button');
+console.log(button)
 console.log(optionDivs);
-const optionDivs2 = document.querySelectorAll('.option');
-console.log(optionDivs2);
-
-for (let i = 0; i < optionDivs.length; i++) {
-  optionDivs.addEventListener("click", test);
-}
-
+//const optionDivs2 = document.querySelectorAll('.option');
+//console.log(optionDivs2);
+button.addEventListener('click', startGame)
 question.innerHTML = firstQuestion.questionAndOptions();
 
-function test() {
-  console.log('yay!')
+for (let i = 0; i < optionDivs.length; i++) {
+  console.log(optionDivs[i])
+  optionDivs[i].addEventListener("click", () => console.log("yay!"));
+};
+
+function startGame () {
+  console.log(button.innerHTML);
+  if (button.innerHTML === 'Start'){
+    button.innerHTML = "restart"
+  }
 };
