@@ -1,16 +1,130 @@
 * {
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-    position: fixed;
-    top:0;
-    width:100%;
-    background-color: black;
-    
-
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  background-color: black;
+  color: pink;
+  border-bottom: 1px solid white;
+  text-align: center;
 }
 
+header h1 {
+  text-align: center;
+  padding: 20px;
+  font-size: 2.5rem;
+}
+
+main {
+  background-color: black;
+  color: pink;
+  font-size: 1.5rem;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 70px;
+}
+
+.shadowgradient {
+  width: 60%;
+  height: 320px;
+
+  margin: 100px auto;
+  background: linear-gradient(0deg, #000, #333);
+  position: relative;
+  text-align: center;
+}
+
+.shadowgradient::before,
+.shadowgradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  /* z-index: -1; */
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  top: -2px;
+  left: -2px;
+  background-size: 500%;
+  animation: wandernderFarbverlauf 30s linear infinite;
+}
+
+.shadowgradient:after {
+  filter: blur(25px);
+}
+
+.box {
+  position: relative;
+  z-index: 1;
+  background-color: black;
+  color: pink;
+  font-size: 1.5rem;
+  height: 320px;
+  padding: 20px;
+}
+
+@keyframes wandernderFarbverlauf {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 500% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+#startButton {
+  background-color: pink;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.5rem;
+  margin: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#startButton a:hover {
+  background-color: pink;
+  color: black;
+  font-size: 1.4 rem;
+  text-decoration: none;
+  transition: 200ms;
+}
+
+footer {
+  background-color: pink;
+  color: black;
+  align-items: center;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 8vh;
+  margin-bottom: 0;
+  position: relative;
+}
