@@ -6,22 +6,26 @@ class Question{
   questionAndOptions(){
     return `<div id=question>${this.text}</div> ${this.options.map(option => `<div class=option>${option[0]}</div>`)}`
   }
-  checkChoice(){ 
-    return 0;
+  checkChoice(){
+    console.log(this.options[0][0]); 
+    return this.options[0][1] === 1 ? score++ : 0 
   }
 };
 
 // --------- questions --------------
-
 const questions = [
   new Question("Was ist der größte Berg der Erde?",[['Mount Everest', 1], ['Kangchendzönga', 0], ['Annapurna', 0]]),
   new Question("Welches gehört zu den sieben Weltwundern?", [['Die Pyramiden von Gizeh', 1],['Eiffelturm', 0], ['Brandenburger Tor', 0]]),
   new Question("Seit wann gibt es Bier?", [['Seit ca. 7000 v.u.Z', 1], ['seit ca 2000 Jahren', 0], ['seit 1516', 0]]),
 ]
 
-// ----------- html-stuff ----------
+// --------- variables -------------
+let score = 0;
 let currentQuestionIndex = 0;
 let currentQuestion = getQuestion();
+const nextQuestion = getQuestion();
+
+// ----------- html-stuff ----------
 const optionDivs = document.getElementsByClassName('option');
 const question = document.getElementById("question");
 const button = document.querySelector('button');
