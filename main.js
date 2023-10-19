@@ -29,22 +29,29 @@ const nextQuestion = getQuestion();
 const optionDivs = document.getElementsByClassName('option');
 const question = document.getElementById("question");
 const button = document.querySelector('button');
-const nextQuestion = getQuestion();
+//console.log(button)
+//console.log(optionDivs);
 //const optionDivs2 = document.querySelectorAll('.option');
 //console.log(optionDivs2);
 button.addEventListener('click', startGame);
+//console.log('next question: ', nextQuestion)
+//console.log('current question: ', currentQuestion)
 question.innerHTML = currentQuestion.questionAndOptions();
 
+// test checkChoice
+console.log("curQu CC", currentQuestion.checkChoice());
+console.log('score: ', score);
+
+const test = optionDivs => console.log('optionDivs[i]', optionDivs);
+// call checkChoice?
 for (let i = 0; i < optionDivs.length; i++) {
-  console.log(optionDivs[i])
-  optionDivs[i].addEventListener("click", () => console.log("yay!"));
+  optionDivs[i].addEventListener("click", test(optionDivs[i]))
 };
 
 function startGame () {
-  console.log(button.innerHTML);
-  if (button.innerHTML === 'Start'){
-    button.innerHTML = "restart"
-  }
+  //if (button.innerHTML === 'Start'){
+  //  button.innerHTML = "restart"
+ // }
 };
 
 function toggleStartButton () {
@@ -63,4 +70,4 @@ function getQuestion() {
     //restart the game? show score?
     toggleStartButton()
   }
-}
+};
