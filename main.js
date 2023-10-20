@@ -29,6 +29,8 @@ let nextQuestion = [];
 //TODO change in html: question to questionsContainer
 const questionsContainer = document.getElementById('questionsContainer');
 const question = document.getElementById("questionsContainer");
+const button = document.getElementById('startButton');
+button.addEventListener('click', toggleStartButton);
 //event delegation: 
 questionsContainer.addEventListener('click', event => {
   console.log(event.target)
@@ -53,17 +55,34 @@ function handleUserChoice(i) {
   currentQuestion = getQuestion();
   console.log('current question 2', currentQuestion);
 
-function startGame () {
-  //if (button.innerHTML === 'Start'){
-  //  button.innerHTML = "restart"
- // }
-};
-
-function toggleStartButton () {
-  if (button.innerHTML === 'Start'){
-    button.innerHTML = "restart"
+  if (currentQuestion) {
+    question.innerHTML = currentQuestion.questionAndOptions();
+  } else {
+    question.innerHTML = `Your score is ${score}`;
+    toggleStartButton();
   }
 };
+
+// ------------ button -----------
+function toggleStartButton () {
+  if (button.innerHTML === 'Start'){
+    button.innerHTML = "Restart";
+    resetGame();
+  } else {
+    button.innerHTML = "Start";
+  }
+};
+
+function resetGame () {
+  console.log('reset game ')
+  score = 0;
+  currentQuestionIndex = 0;
+  currentQuestion = questions[currentQuestionIndex];
+  question.innerHTML = currentQuestion.questionAndOptions();
+}
+
+// function startGame () {};
+
 
 function getQuestion() {
   if (currentQuestionIndex < questions.length) {
