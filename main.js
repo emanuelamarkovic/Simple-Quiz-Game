@@ -86,12 +86,12 @@ function resetGame () {
 
 function getQuestion() {
   if (currentQuestionIndex < questions.length) {
-    const nextQuestion = questions[currentQuestionIndex];
     currentQuestionIndex++;
+    nextQuestion = questions[currentQuestionIndex];
     return nextQuestion;
   }
   else {
     //restart the game? show score?
-    toggleStartButton()
+    toggleStartButton();
   }
 };
