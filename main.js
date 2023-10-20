@@ -22,52 +22,76 @@ const questions = [
 // --------- variables -------------
 let score = 0;
 let currentQuestionIndex = 0;
-let currentQuestion = getQuestion();
-const nextQuestion = getQuestion();
+let currentQuestion = questions[currentQuestionIndex];
+let nextQuestion = [];
 
 // ----------- html-stuff ----------
-const optionDivs = document.getElementsByClassName('option');
-const question = document.getElementById("question");
-const button = document.querySelector('button');
-//console.log(button)
-//console.log(optionDivs);
-//const optionDivs2 = document.querySelectorAll('.option');
-//console.log(optionDivs2);
-button.addEventListener('click', startGame);
-//console.log('next question: ', nextQuestion)
-//console.log('current question: ', currentQuestion)
+//TODO change in html: question to questionsContainer
+const questionsContainer = document.getElementById('questionsContainer');
+const question = document.getElementById("questionsContainer");
+const button = document.getElementById('startButton');
+button.addEventListener('click', toggleStartButton);
+//event delegation: 
+questionsContainer.addEventListener('click', event => {
+  console.log(event.target)
+  if (event.target.classList.contains('option')) {
+    const selectedOptionIndex = Array.from(questionsContainer.children).indexOf(event.target);
+    handleUserChoice(selectedOptionIndex);
+  }});
 question.innerHTML = currentQuestion.questionAndOptions();
 
 // test checkChoice
 console.log("curQu CC", currentQuestion.checkChoice());
 console.log('score: ', score);
 
-const test = optionDivs => console.log('optionDivs[i]', optionDivs);
-// call checkChoice?
-for (let i = 0; i < optionDivs.length; i++) {
-  optionDivs[i].addEventListener("click", test(optionDivs[i]))
-};
+function handleUserChoice(i) {
+  console.log('click!', i);
+  // hardcoded 1
+  const isCorrect = 1; 
+  if (isCorrect) {
+    score++;
+  }
+  console.log('score++ ', score );
+  currentQuestion = getQuestion();
+  console.log('current question 2', currentQuestion);
 
-function startGame () {
-  //if (button.innerHTML === 'Start'){
-  //  button.innerHTML = "restart"
- // }
-};
-
-function toggleStartButton () {
-  if (button.innerHTML === 'Start'){
-    button.innerHTML = "restart"
+  if (currentQuestion) {
+    question.innerHTML = currentQuestion.questionAndOptions();
+  } else {
+    question.innerHTML = `Your score is ${score}`;
+    toggleStartButton();
   }
 };
 
+// ------------ button -----------
+function toggleStartButton () {
+  if (button.innerHTML === 'Start'){
+    button.innerHTML = "Restart";
+    resetGame();
+  } else {
+    button.innerHTML = "Start";
+  }
+};
+
+function resetGame () {
+  console.log('reset game ')
+  score = 0;
+  currentQuestionIndex = 0;
+  currentQuestion = questions[currentQuestionIndex];
+  question.innerHTML = currentQuestion.questionAndOptions();
+}
+
+// function startGame () {};
+
+
 function getQuestion() {
   if (currentQuestionIndex < questions.length) {
-    const nextQuestion = questions[currentQuestionIndex];
     currentQuestionIndex++;
+    nextQuestion = questions[currentQuestionIndex];
     return nextQuestion;
   }
   else {
     //restart the game? show score?
-    toggleStartButton()
+    toggleStartButton();
   }
 };
