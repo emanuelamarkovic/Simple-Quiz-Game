@@ -4,9 +4,10 @@ class Question{
     this.options = options;
   }
   questionAndOptions(){
-    return `<div id=question>${this.text}</div> ${this.options.map(option => `<div class=option>${option[0]}</div>`)}`
+    return `<div id=question>${this.text}</div> ${this.options.map(option => `<div class=option>${option[0]}</div>`).join('')}`
   }
-  checkChoice(selectedOptionIndex){ // hardcoded
+  checkChoice(selectedOptionIndex){
+    //console.log('this.options[selectedOptionIndex][1]', this.options[selectedOptionIndex][1]); 
     return this.options[selectedOptionIndex][1] === 1 ? 1 : 0;
   }
 };
