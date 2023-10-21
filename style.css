@@ -1,8 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lilita+One&family=Lobster&family=Maven+Pro:wght@400;600&family=Open+Sans:ital,wght@1,300&family=Orbitron&display=swap");
+
 * {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .question {
+    font-size: 1rem;
+  }
+  .option {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1rem;
+  }
+  .question {
+    font-size: 0.5rem;
+  }
+  .option {
+    font-size: 1rem;
+  }
 }
 
 header {
@@ -11,7 +37,7 @@ header {
   width: 100%;
   height: 10vh;
   background-color: black;
-  color: pink;
+  color: yellow;
   border-bottom: 1px solid white;
   text-align: center;
 }
@@ -24,7 +50,7 @@ header h1 {
 
 main {
   background-color: black;
-  color: pink;
+  color: yellow;
   font-size: 1.5rem;
   height: 85vh;
   display: flex;
@@ -35,8 +61,7 @@ main {
 
 .shadowgradient {
   width: 60%;
-  height: 320px;
-
+  height: 520px;
   margin: 100px auto;
   background: linear-gradient(0deg, #000, #333);
   position: relative;
@@ -67,7 +92,7 @@ main {
   top: -2px;
   left: -2px;
   background-size: 500%;
-  animation: wandernderFarbverlauf 30s linear infinite;
+  animation: rainbowBox 30s linear infinite;
 }
 
 .shadowgradient:after {
@@ -78,13 +103,17 @@ main {
   position: relative;
   z-index: 1;
   background-color: black;
-  color: pink;
+  color: white;
   font-size: 1.5rem;
-  height: 320px;
+  height: 520px;
   padding: 20px;
 }
 
-@keyframes wandernderFarbverlauf {
+.box div {
+  margin: 30px;
+}
+
+@keyframes rainbowBox {
   0% {
     background-position: 0 0;
   }
@@ -96,20 +125,43 @@ main {
   }
 }
 
+#questionsContainer {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.option {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.option:hover {
+  background-color: yellow;
+  color: black;
+  font-size: 1.4 rem;
+  text-decoration: none;
+  transition: 200ms;
+}
+
 #startButton {
-  background-color: pink;
+  background-color: yellow;
   color: black;
   border: 1px solid black;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 30px 10px 30px;
   font-size: 1.5rem;
+  font-weight: bold;
   margin: 20px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 #startButton a:hover {
-  background-color: pink;
+  background-color: orange;
   color: black;
   font-size: 1.4 rem;
   text-decoration: none;
@@ -117,14 +169,38 @@ main {
 }
 
 footer {
-  background-color: pink;
+  background-color: yellow;
   color: black;
   align-items: center;
   font-size: 14px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   width: 100%;
   height: 8vh;
   margin-bottom: 0;
   position: relative;
+}
+
+ul li {
+  display: inline-block;
+  text-decoration: none;
+}
+
+a {
+  margin-bottom: 40px;
+  color: black;
+  margin-right: 10px;
+}
+
+ul li a i {
+  color: black;
+  font-size: 20px;}
+
+.fa-github {
+  font-size: 2rem;
+  color: #000;
+}
+.fa-github:hover {
+  color: #4078c0;
 }
