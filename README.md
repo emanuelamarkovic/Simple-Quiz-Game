@@ -8,5 +8,6 @@
   
 - ✔️ Create instances of the Question class for at least three different quiz questions.
 - ✔️ Implement a way for users to answer the questions
-- implement functionality in start button
-- count users score and display
+- ✔️ implement functionality in start button
+- ✔️ count users score and display
+- 

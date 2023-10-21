@@ -4,9 +4,9 @@ class Question{
     this.options = options;
   }
   questionAndOptions(){
-    return `<div id=question>${this.text}</div> ${this.options.map(option => `<div class=option>${option[0]}</div>`)}`
+    return `<div id=question>${this.text}</div> ${this.options.map(option => `<div class=option>${option[0]}</div>`).join('')}`
   }
-  checkChoice(selectedOptionIndex){ // hardcoded
+  checkChoice(selectedOptionIndex){
     return this.options[selectedOptionIndex][1] === 1 ? 1 : 0;
   }
 };
@@ -33,44 +33,50 @@ button.addEventListener('click', toggleStartButton);
 questionsContainer.addEventListener('click', event => {
   console.log(event.target)
   if (event.target.classList.contains('option')) {
-    const selectedOptionIndex = Array.from(questionsContainer.children).indexOf(event.target);
+    const selectedOptionIndex = Array.from(questionsContainer.children).indexOf(event.target) -1;
     handleUserChoice(selectedOptionIndex);
   }});
 question.innerHTML = currentQuestion.questionAndOptions();
 
-// test checkChoice
-console.log("curQu CC", currentQuestion.checkChoice(currentQuestionIndex));
-console.log('score: ', score);
-
 function handleUserChoice(selectedOptionIndex) {
-  console.log('click!', selectedOptionIndex);
   const isCorrect = currentQuestion.checkChoice(selectedOptionIndex);
-  console.log('currentquestioncheckchoice: ', currentQuestion.checkChoice(currentQuestionIndex));
   if (isCorrect) {
     score++;
-  }
-  console.log(isCorrect, score)
+  };
   currentQuestion = getQuestion();
-  console.log('current question 2', currentQuestion);
-
   if (currentQuestion) {
     question.innerHTML = currentQuestion.questionAndOptions();
   } else {
-    question.innerHTML = `Your score is ${score}`;
+    if (score === questions.length) {
+      question.innerHTML = `Everything rigth! 👻\nYour score is ${score}!`;
+      toggleStartButton;
+      return;
+    } else {
+      question.innerHTML = `Your score is ${score}`;
+      toggleStartButton;
+      return;
+    };
+  };
+};
+
+function getQuestion() {
+  if (currentQuestionIndex < questions.length) {
+    currentQuestionIndex++;
+    nextQuestion = questions[currentQuestionIndex];
+    return nextQuestion;
+  }
+  else {
     toggleStartButton();
   }
 };
 
 function getQuestion() {
   if (currentQuestionIndex < questions.length) {
-  //  console.log(currentQuestionIndex);
     currentQuestionIndex++;
     nextQuestion = questions[currentQuestionIndex];
-  //  console.log(currentQuestionIndex, 'next question', nextQuestion);
     return nextQuestion;
   }
   else {
-    //restart the game? show score?
     toggleStartButton();
   }
 };
@@ -82,6 +88,7 @@ function toggleStartButton () {
     resetGame();
   } else {
     button.innerHTML = "Start";
+    resetGame();
   }
 };
 
@@ -91,6 +98,4 @@ function resetGame () {
   currentQuestionIndex = 0;
   currentQuestion = questions[currentQuestionIndex];
   question.innerHTML = currentQuestion.questionAndOptions();
-}
-
-// function startGame () {};
+};
