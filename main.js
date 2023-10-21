@@ -40,19 +40,19 @@ questionsContainer.addEventListener('click', event => {
 question.innerHTML = currentQuestion.questionAndOptions();
 
 // test checkChoice
-console.log("curQu CC", currentQuestion.checkChoice(currentQuestionIndex));
-console.log('score: ', score);
+//console.log("curQu CC", currentQuestion.checkChoice(currentQuestionIndex));
+//console.log('score: ', score);
 
 function handleUserChoice(selectedOptionIndex) {
-  console.log('click!', selectedOptionIndex);
+//  console.log('click!', selectedOptionIndex);
   const isCorrect = currentQuestion.checkChoice(selectedOptionIndex);
-  console.log('currentquestioncheckchoice: ', currentQuestion.checkChoice(currentQuestionIndex));
+//  console.log('currentquestioncheckchoice: ', currentQuestion.checkChoice(currentQuestionIndex));
   if (isCorrect) {
     score++;
   }
-  console.log(isCorrect, score)
+//  console.log(isCorrect, score)
   currentQuestion = getQuestion();
-  console.log('current question 2', currentQuestion);
+//  console.log('current question 2', currentQuestion);
 
   if (currentQuestion) {
     question.innerHTML = currentQuestion.questionAndOptions();
