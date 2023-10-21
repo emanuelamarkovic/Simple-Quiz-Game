@@ -6,9 +6,8 @@ class Question{
   questionAndOptions(){
     return `<div id=question>${this.text}</div> ${this.options.map(option => `<div class=option>${option[0]}</div>`)}`
   }
-  checkChoice(){
-    console.log(this.options[0][0]); 
-    return this.options[0][1] === 1 ? score++ : 0 
+  checkChoice(selectedOptionIndex){ // hardcoded
+    return this.options[selectedOptionIndex][1] === 1 ? 1 : 0;
   }
 };
 
@@ -41,17 +40,17 @@ questionsContainer.addEventListener('click', event => {
 question.innerHTML = currentQuestion.questionAndOptions();
 
 // test checkChoice
-console.log("curQu CC", currentQuestion.checkChoice());
+console.log("curQu CC", currentQuestion.checkChoice(currentQuestionIndex));
 console.log('score: ', score);
 
-function handleUserChoice(i) {
-  console.log('click!', i);
-  // hardcoded 1
-  const isCorrect = 1; 
+function handleUserChoice(selectedOptionIndex) {
+  console.log('click!', selectedOptionIndex);
+  const isCorrect = currentQuestion.checkChoice(selectedOptionIndex);
+  console.log('currentquestioncheckchoice: ', currentQuestion.checkChoice(currentQuestionIndex));
   if (isCorrect) {
     score++;
   }
-  console.log('score++ ', score );
+  console.log(isCorrect, score)
   currentQuestion = getQuestion();
   console.log('current question 2', currentQuestion);
 
