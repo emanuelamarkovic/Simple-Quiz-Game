@@ -7,6 +7,6 @@
 - ✔️ A method to check if the user's choice is correct.
   
 - ✔️ Create instances of the Question class for at least three different quiz questions.
-- Implement a way for users to answer the questions
+- ✔️ Implement a way for users to answer the questions
 - implement functionality in start button
-- change option-divs to checkboxes
+- count users score and display
