@@ -34,7 +34,7 @@ button.addEventListener('click', toggleStartButton);
 questionsContainer.addEventListener('click', event => {
   console.log(event.target)
   if (event.target.classList.contains('option')) {
-    const selectedOptionIndex = Array.from(questionsContainer.children).indexOf(event.target);
+    const selectedOptionIndex = Array.from(questionsContainer.children).indexOf(event.target) -1;
     handleUserChoice(selectedOptionIndex);
   }});
 question.innerHTML = currentQuestion.questionAndOptions();
