@@ -62,7 +62,6 @@ main {
 .shadowgradient {
   width: 60%;
   height: 520px;
-
   margin: 100px auto;
   background: linear-gradient(0deg, #000, #333);
   position: relative;
