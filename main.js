@@ -57,8 +57,15 @@ function handleUserChoice(selectedOptionIndex) {
   if (currentQuestion) {
     question.innerHTML = currentQuestion.questionAndOptions();
   } else {
-    question.innerHTML = `Your score is ${score}`;
-    toggleStartButton();
+      if (score === questions.length) {
+       question.innerHTML = `Everything rigth! 👻\nYour score is ${score}!`;
+       toggleStartButton;
+       return;
+      } else {
+        question.innerHTML = `Your score is ${score}`;
+        toggleStartButton;
+        return;
+      }
   }
 };
 
@@ -83,6 +90,7 @@ function toggleStartButton () {
     resetGame();
   } else {
     button.innerHTML = "Start";
+    resetGame();
   }
 };
 
