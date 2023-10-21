@@ -6,9 +6,8 @@ class Question{
   questionAndOptions(){
     return `<div id=question>${this.text}</div> ${this.options.map(option => `<div class=option>${option[0]}</div>`)}`
   }
-  checkChoice(){
-    console.log(this.options[0][0]); 
-    return this.options[0][1] === 1 ? score++ : 0 
+  checkChoice(selectedOptionIndex){ // hardcoded
+    return this.options[selectedOptionIndex][1] === 1 ? 1 : 0;
   }
 };
 
@@ -16,7 +15,7 @@ class Question{
 const questions = [
   new Question("Was ist der größte Berg der Erde?",[['Mount Everest', 1], ['Kangchendzönga', 0], ['Annapurna', 0]]),
   new Question("Welches gehört zu den sieben Weltwundern?", [['Die Pyramiden von Gizeh', 1],['Eiffelturm', 0], ['Brandenburger Tor', 0]]),
-  new Question("Seit wann gibt es Bier?", [['Seit ca. 7000 v.u.Z', 1], ['seit ca 2000 Jahren', 0], ['seit 1516', 0]]),
+  new Question("Seit wann gibt es Bier?", [['seit ca 2000 Jahren', 0], ['Seit ca. 7000 v.u.Z', 1], ['seit 1516', 0]]),
 ]
 
 // --------- variables -------------
@@ -26,7 +25,6 @@ let currentQuestion = questions[currentQuestionIndex];
 let nextQuestion = [];
 
 // ----------- html-stuff ----------
-//TODO change in html: question to questionsContainer
 const questionsContainer = document.getElementById('questionsContainer');
 const question = document.getElementById("questionsContainer");
 const button = document.getElementById('startButton');
@@ -41,17 +39,17 @@ questionsContainer.addEventListener('click', event => {
 question.innerHTML = currentQuestion.questionAndOptions();
 
 // test checkChoice
-console.log("curQu CC", currentQuestion.checkChoice());
+console.log("curQu CC", currentQuestion.checkChoice(currentQuestionIndex));
 console.log('score: ', score);
 
-function handleUserChoice(i) {
-  console.log('click!', i);
-  // hardcoded 1
-  const isCorrect = 1; 
+function handleUserChoice(selectedOptionIndex) {
+  console.log('click!', selectedOptionIndex);
+  const isCorrect = currentQuestion.checkChoice(selectedOptionIndex);
+  console.log('currentquestioncheckchoice: ', currentQuestion.checkChoice(currentQuestionIndex));
   if (isCorrect) {
     score++;
   }
-  console.log('score++ ', score );
+  console.log(isCorrect, score)
   currentQuestion = getQuestion();
   console.log('current question 2', currentQuestion);
 
@@ -59,6 +57,20 @@ function handleUserChoice(i) {
     question.innerHTML = currentQuestion.questionAndOptions();
   } else {
     question.innerHTML = `Your score is ${score}`;
+    toggleStartButton();
+  }
+};
+
+function getQuestion() {
+  if (currentQuestionIndex < questions.length) {
+  //  console.log(currentQuestionIndex);
+    currentQuestionIndex++;
+    nextQuestion = questions[currentQuestionIndex];
+  //  console.log(currentQuestionIndex, 'next question', nextQuestion);
+    return nextQuestion;
+  }
+  else {
+    //restart the game? show score?
     toggleStartButton();
   }
 };
@@ -82,16 +94,3 @@ function resetGame () {
 }
 
 // function startGame () {};
-
-
-function getQuestion() {
-  if (currentQuestionIndex < questions.length) {
-    currentQuestionIndex++;
-    nextQuestion = questions[currentQuestionIndex];
-    return nextQuestion;
-  }
-  else {
-    //restart the game? show score?
-    toggleStartButton();
-  }
-};
