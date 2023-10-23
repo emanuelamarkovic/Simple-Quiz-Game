@@ -7,62 +7,58 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.5rem;
-  }
-  .question {
-    font-size: 1rem;
-  }
-  .option {
-    font-size: 1rem;
-  }
+/* Body Styles */
+body {
+  background-color: #000;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1rem;
-  }
-  .question {
-    font-size: 0.5rem;
-  }
-  .option {
-    font-size: 1rem;
-  }
-}
-
+/* Header Styles */
 header {
-  position: fixed;
   top: 0;
   width: 100%;
-  height: 10vh;
+  height: 8rem;
   background-color: black;
   color: yellow;
-  border-bottom: 1px solid white;
   text-align: center;
 }
 
 header h1 {
   text-align: center;
-  padding: 20px;
+  padding: 1.25rem;
   font-size: 2.5rem;
 }
 
+/* Main Styles */
 main {
   background-color: black;
   color: yellow;
   font-size: 1.5rem;
-  height: 85vh;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 70px;
 }
 
+/* Shadow Gradient Styles */
 .shadowgradient {
   width: 60%;
-  height: 520px;
-  margin: 100px auto;
+  height: 25rem;
+  margin: 0 auto;
+  flex: 1;
+  background: linear-gradient(0deg, #000, #333);
+  display: flex;
+  position: relative;
+  text-align: center;
+}
+
+.shadowgradient,
+.box {
+  width: 58%;
+  flex: 1;
   background: linear-gradient(0deg, #000, #333);
   position: relative;
   text-align: center;
@@ -86,11 +82,10 @@ main {
     indigo,
     violet
   );
-  /* z-index: -1; */
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  top: -2px;
-  left: -2px;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  top: -0.133em;
+  left: -0.133em;
   background-size: 500%;
   animation: rainbowBox 30s linear infinite;
 }
@@ -99,20 +94,24 @@ main {
   filter: blur(25px);
 }
 
+/* Box Styles */
 .box {
+  width: 60%;
   position: relative;
   z-index: 1;
   background-color: black;
   color: white;
   font-size: 1.5rem;
-  height: 520px;
-  padding: 20px;
+  height: 33rem;
+  box-sizing: border-box;
+  
 }
 
 .box div {
-  margin: 30px;
+  margin: 1rem;
 }
 
+/* CSS Animation for the Shadow Gradient */
 @keyframes rainbowBox {
   0% {
     background-position: 0 0;
@@ -128,15 +127,25 @@ main {
 #questionsContainer {
   font-size: 1.5rem;
   font-weight: bolder;
+  text-align: center;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Styles for Options (Answers) */
 .option {
-  padding: 10px;
-  border: 1px solid white;
-  border-radius: 5px;
+  padding: 0.5rem;
+  border: 3px solid white;
+  border-radius: 0.3125rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   position: relative;
+  margin: 1rem;
+  width: 70%;
+  text-align: center;
 }
 
 .option:hover {
@@ -144,9 +153,10 @@ main {
   color: black;
   font-size: 1.4 rem;
   text-decoration: none;
-  transition: 200ms;
+  transition: 0.2s;
 }
 
+/* Start Button Styles */
 #startButton {
   background-color: yellow;
   color: black;
@@ -155,7 +165,7 @@ main {
   padding: 10px 30px 10px 30px;
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 20px;
+  margin-bottom: 2rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -168,18 +178,19 @@ main {
   transition: 200ms;
 }
 
+/* Footer Styles */
 footer {
   background-color: yellow;
   color: black;
   align-items: center;
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: bold;
   display: flex;
   justify-content: center;
   width: 100%;
   height: 8vh;
-  margin-bottom: 0;
-  position: relative;
+  bottom: 0;
+  position: fixed;
 }
 
 ul li {
@@ -188,14 +199,15 @@ ul li {
 }
 
 a {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   color: black;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 ul li a i {
   color: black;
-  font-size: 20px;}
+  font-size: 1.25rem;
+}
 
 .fa-github {
   font-size: 2rem;
@@ -203,4 +215,47 @@ ul li a i {
 }
 .fa-github:hover {
   color: #4078c0;
+}
+
+/* Media Queries for Different Screen Sizes */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .question {
+    font-size: 1rem;
+  }
+  .option {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1rem;
+  }
+  .question {
+    font-size: 0.5rem;
+  }
+  .option {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 375px) {
+  header {
+    height: 6rem;
+  }
+  header h1 {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .question {
+    font-size: 1rem;
+  }
+  .option {
+    font-size: 1rem;
+  }
+  footer {
+    height: 8vh;
+  }
 }
