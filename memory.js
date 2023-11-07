@@ -52,7 +52,7 @@ function unflipCards() {
 function lock() {
   // cards stay flipped
   firstCard.removeEventListener('click', flipCard);
-  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
 }
 function checkForMatch() {
 moveCount++;
