@@ -1,8 +1,3 @@
-// make a memory game - what functions are needed:
-// funktion flip
-// function unflip
-// function checkForMatch
-
 const emojis = ["🐼", "🐼", "🐢", "🐢", "😍", "😍", "🐒", "🐒"];
 const resetButton = document.getElementById("reset-button");
 // create cards
@@ -35,11 +30,11 @@ function flipCard() {
     hasCardFlipped = false;
     secondCard = this;
     console.log(secondCard);
-    checkForMatch()
+    checkForMatch();
   }
 }
-
-function unflipCards(){
+// pictures are covered
+function unflipCards() {
   console.log('unflip');
   // remove classlist('flip')
 }
@@ -48,9 +43,8 @@ function lock(){
   // cards bleiben aufgedeckt
   console.log('lock!')
 }
-function checkForMatch (){
-  firstCard.dataset.picture === secondCard.dataset.picture ? lock() : unflipCards()
+function checkForMatch() {
+  firstCard.innerHTML === secondCard.innerHTML ? lock() : unflipCards();
 }
 
-cards.forEach(card => card.addEventListener("click", flipCard))
-
+cards.forEach(card => card.addEventListener("click", flipCard));
