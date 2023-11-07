@@ -3,12 +3,12 @@
 ## TODOs:
 memory game: <br>
 script:⌨️
-  - flip cards
+  - ✔️ flip cards
   - ✔️ check for match
-  - unflip cards
+  - ✔️ unflip cards
   - end game
   - start game
-  - count moves
+  - ✔️ count moves
   - win-event
 <br>
 
