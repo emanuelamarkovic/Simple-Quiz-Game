@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-  <link rel="stylesheet" href="./style.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
-    <title>Memory</title>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./memory.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <title>Memory</title>
   </head>
   <body>
     <header>
@@ -19,17 +19,9 @@
     </header>
 
     <main>
-      <section id="memoryBoard">
-        <div class="memory-card" data-picture="1"></div>
-        <div class="memory-card" data-picture="1"></div>
-        <div class="memory-card" data-picture="2"></div>
-        <div class="memory-card" data-picture="2"></div>
-        <div class="memory-card" data-picture="3"></div>
-        <div class="memory-card" data-picture="3"></div>
-        <div class="memory-card" data-picture="4"></div>
-        <div class="memory-card" data-picture="4"></div>
+      <section id="memory-board">
       </section>
-      <button id="resetButton"></button>
+      <button id="reset-button">Reset Game</button>
     </main>
 
     <footer>
@@ -50,6 +42,24 @@
       </ul>
       <p>&copy; 2023 Memory Game</p>
     </footer>
+
+    <script>
+      const emojis = ["🐼", "🐼", "🐢", "🐢", "😍", "😍", "🐒", "🐒"];
+      let shuffledEmojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
+      for (let i = 0; i < emojis.length; i++) {
+        const cards = document.createElement("div");
+        cards.className = "memory-card";
+        cards.innerHTML = shuffledEmojis[i];
+        document.querySelector("#memory-board").appendChild(cards);
+      }
+        function resetGame() {
+          window.location.reload();
+        }
+
+        const resetButton = document.getElementById("reset-button");
+        resetButton.addEventListener("click", resetGame);
+      
+    </script>
     <script src="memory.js"></script>
   </body>
 </html>
