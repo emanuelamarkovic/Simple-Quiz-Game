@@ -1,5 +1,12 @@
 const emojis = ["🐼", "🐼", "🐢", "🐢", "😍", "😍", "🐒", "🐒"];
 const resetButton = document.getElementById("reset-button");
+let moveCount = 0;
+const moveCountDisplay = document.createElement('div');
+moveCountDisplay.classList = 'move-count-display'
+const memoryBoard = document.querySelector('#memory-board');
+memoryBoard.appendChild(moveCountDisplay);
+moveCountDisplay.innerText = '0';
+
 // create cards
 let shuffledEmojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
 for (let i = 0; i < emojis.length; i++) {
@@ -48,7 +55,10 @@ function lock() {
   firstCard.removeEventListener('click', flipCard);
 }
 function checkForMatch() {
-  firstCard.innerHTML === secondCard.innerHTML ? lock() : unflipCards();
+moveCount++;
+moveCountDisplay.innerText = moveCount;
+console.log(moveCount)
+firstCard.innerHTML === secondCard.innerHTML ? lock() : unflipCards();
 }
 
 cards.forEach(card => card.addEventListener("click", flipCard));
