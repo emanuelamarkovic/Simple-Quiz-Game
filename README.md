@@ -4,11 +4,12 @@
 memory game: <br>
 script:⌨️
   - flip cards
-  * ✔️ check for match
+  - ✔️ check for match
   - unflip cards
   - end game
   - start game
-  - count moves 
+  - count moves
+  - win-event
 <br>
 
 css:🖌️
