@@ -1,13 +1,121 @@
-.memory-card {
-  width: 50px;
-  height: 50px;
-  margin: 0.5em;
-  text-align: center;
-  background-color: yellow;
+#memory-board {
+  width :90%;
+  max-width: 800px;
+  height: 25rem;
+  margin: 0 auto;
+  flex: 1;
+  background: rgba(245, 245, 245, 0.371);
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  border-radius: 15px;
+  padding: 4%; 
+  transform-style: preserve-3d;
+  perspective: 500px;
+  margin-bottom: 20px;
+}
+
+.move-count-display{
+  position: relative;
+  width: 20%;
+  height: 7rem;
+  margin: 0.1em;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
   border-radius: 0.2em;
+  font-size: 2em;
+  display: block;
 }
-.flip {
-  background-color: pink;
+
+.memory-card{
+  background-color: yellow;
+  width: 20%;
+  height: 4em;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  position: relative;
+  margin: 2px;
+  border-radius: 15px;
+}
+
+.card-inner{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+.memory-card.flip .card-inner {
+  transform:rotateY(0deg)
+} 
+
+.card-cover, .card-back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+.card-cover{
+  background-color: #fff;
+  font-size: 3em;
+}
+
+.card-back{
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(0deg);
+  border-radius: 15px;
+ }
+
+ .memory-card.flip .card-cover {
+  display: block;
+}
+
+.memory-card.flip .card-back {
+  display: none;
+}
+
+#reset-button{
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  width: 20%;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .memory-card {
+    width: 30%; 
+  }
+
+  #memory-board {
+    padding: 2%; 
+  }
+
+  #reset-button {
+    width: 70%; 
+    font-size: 1rem; 
+  }
 }
 
 
+
+
+
+ 
