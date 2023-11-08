@@ -16,7 +16,8 @@ for (let i = 0; i < emojis.length; i++) {
     <div ='card-cover'>
     ${shuffledEmojis[i]}
     </div>
-    </div>`
+    </div>
+    <div class='card-back'></div>`
   document.querySelector("#memory-board").appendChild(cards);
 }
 const cards = document.querySelectorAll('.memory-card');
