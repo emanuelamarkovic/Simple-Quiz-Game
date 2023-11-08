@@ -1,5 +1,28 @@
 import { questions } from './Questions.js';
+// --------- drop-down -------------
+const header = document.querySelector('header');
+const dropdownButton = document.createElement('div');
+dropdownButton.classList = 'dropdown-menue';
+dropdownButton.innerHTML = `<h2 class='dropdown-menue'>X</h><div class="options"></div`;
+header.appendChild(dropdownButton);
+const options = document.getElementsByClassName('options');
+//console.log(options);
+const htmlFiles = ['memory.html', 'index.html'];
+htmlFiles.forEach(htmlFile => {
+  console.log('htmlfile ', htmlFile)
+  const option = document.createElement('option');
+  option.innerHTML = `<a href=${htmlFile}>${htmlFile}</a>`;
+  options[0].appendChild(option);
+})
 
+dropdownButton.addEventListener('click', () => {
+  if (options[0].style.display === 'block') {
+    options[0].style.display = 'none';
+  } else {
+    options[0].style.display = 'block';
+  }
+});
+// ********* QUIZ GAME ***********
 // --------- variables -------------
 let score = 0;
 let currentQuestionIndex = 0;
