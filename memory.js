@@ -12,7 +12,11 @@ let shuffledEmojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
 for (let i = 0; i < emojis.length; i++) {
   const cards = document.createElement("div");
   cards.className = "memory-card";
-  cards.innerHTML = shuffledEmojis[i];
+  cards.innerHTML = `<div class='card-inner'>
+    <div ='card-cover'>
+    ${shuffledEmojis[i]}
+    </div>
+    </div>`
   document.querySelector("#memory-board").appendChild(cards);
 }
 const cards = document.querySelectorAll('.memory-card');
