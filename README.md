@@ -6,17 +6,19 @@ script:⌨️
   - ✔️ flip cards
   - ✔️ check for match
   - ✔️ unflip cards
-  - end game
+  - ✔️ end game
   - start game
   - ✔️ count moves
-  - win-event
+  - ✔️ win-event
+  - get pages for dropdown menue dynamicly
 <br>
 
 css:🖌️
   - style board
   - style front and back of cards
   - flip-animation
+  - style dropdown menue
 <br>
 
 html:👑
-  - choice of games (header)
+  - ✔️ choice of games (header)
