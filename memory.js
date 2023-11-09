@@ -1,29 +1,48 @@
 const emojis = ["🐼", "🐼", "🐢", "🐢", "😍", "😍", "🐒", "🐒"];
 const resetButton = document.getElementById("reset-button");
+const startButton = document.getElementById('start-button');
+// count players moves
 let moveCount = 0;
 const moveCountDisplay = document.createElement('div');
 moveCountDisplay.classList = 'move-count-display';
 const memoryBoard = document.querySelector('#memory-board');
-memoryBoard.appendChild(moveCountDisplay);
-moveCountDisplay.innerText = '0';
+// **** more consistent naming
+const wonMessage = document.createElement('div');
+wonMessage.classList = 'win-message';
+wonMessage.id = 'won-message';
+// missing if-condition?
+memoryBoard.appendChild(wonMessage);
 
-const startButton = document.getElementById('start-button');
-
-startButton.addEventListener('click', function() {
-  startTimer();
-});
-
+let hasCardFlipped = false;
+let lockBoard = false;
+let firstCard, secondCard;
+let cardsMatched = 0;
 // Save variable
 let timerInterval;
 let seconds = 0;
 let isTiming = false;
+
+// buttons
+startButton.addEventListener('click', function() {
+  startTimer();
+});
+resetButton.addEventListener("click", resetGame);
+
+// Adding the resetBoard() function - Resetting the game variables for the course of the game
+function resetBoard() {
+  console.log("resetBoard")
+  hasCardFlipped = false;
+  lockBoard = false;
+  firstCard = null;
+  secondCard = null;
+}
 
 function startTimer() {
   isTiming = true;
   timerInterval = setInterval(() => {
   seconds++;
 }, 1000);
-  
+
 }
 function stopTimer() {
   isTiming = false;
@@ -39,7 +58,7 @@ function updateMoveCount() {
 // Page is reloaded and the game is reset
 function resetGame() {
   console.log("resetGame")
-window.location.reload();
+  window.location.reload();
 }
 
 // The function controls the turning over of cards and checks whether two face-up cards match
@@ -60,11 +79,6 @@ function flipCard() {
   }
 }
 
-let hasCardFlipped = false;
-let lockBoard = false;
-let firstCard, secondCard;
-let cardsMatched = 0;  
-
 // The function controls the turning over of cards and checks whether two face-up cards match.
 function checkForMatch() {
   console.log("checkForMatch")
@@ -76,14 +90,15 @@ function checkForMatch() {
     cardsMatched += 2;
   if (cardsMatched === emojis.length) stopTimerAndDisplayWin();
   } else {
-  unflipCards();
-}
+    unflipCards();
+  }
 }
 
 // Stop timer and Display win is displayed and the win message appears
 function stopTimerAndDisplayWin() {
   stopTimer();
-  const wonMessage = document.getElementById('won-message');
+  //declared twice
+  //const wonMessage = document.getElementById('won-message');
   wonMessage.style.display = 'block';
   wonMessage.style.fontSize = '20px';
   wonMessage.style.backgroundColor = 'yellow';
@@ -108,18 +123,7 @@ function unflipCards() {
   }, 1500);
 }
 
-// Adding the resetBoard() function - Resetting the game variables for the course of the game
-function resetBoard() {
-  console.log("resetBoard")
-  hasCardFlipped = false; 
-  lockBoard = false;
-  firstCard = null;
-  secondCard = null; 
-}
-
-resetButton.addEventListener("click", resetGame);
-
-// Card creation loop - Random arrangement of emojis on the cards - Adding the generated cards 
+// Card creation loop - Random arrangement of emojis on the cards - Adding the generated cards
 let shuffledEmojis = emojis.sort(() => Math.random() - 0.5);
 for (let i = 0; i < emojis.length; i++) {
   const card = document.createElement("div");
@@ -132,11 +136,5 @@ for (let i = 0; i < emojis.length; i++) {
   `;
   memoryBoard.appendChild(card);
 }
-
-const wonMessage = document.createElement('div');
-wonMessage.classList = 'win-message';
-wonMessage.id = 'won-message';
-memoryBoard.appendChild(wonMessage);
-
 const cards = document.querySelectorAll('.memory-card');
-cards.forEach(card => card.addEventListener('click', flipCard))
+cards.forEach(card => card.addEventListener('click', flipCard));
