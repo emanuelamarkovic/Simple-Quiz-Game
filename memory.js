@@ -6,6 +6,7 @@ moveCountDisplay.classList = 'move-count-display'
 const memoryBoard = document.querySelector('#memory-board');
 memoryBoard.appendChild(moveCountDisplay);
 moveCountDisplay.innerText = '0';
+let isBoardLocked = false;
 
 // create cards
 let shuffledEmojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
@@ -34,6 +35,9 @@ let hasCardFlipped = false;
 let firstCard, secondCard;
 
 function flipCard() {
+  if (isBoardLocked) {
+    return;
+  } 
   this.classList.add('flip');
   if (!hasCardFlipped) {
     hasCardFlipped = true;
@@ -43,6 +47,7 @@ function flipCard() {
     hasCardFlipped = false;
     secondCard = this;
     console.log(secondCard);
+    lockBoard = true;
     checkForMatch();
   }
 }
@@ -52,6 +57,7 @@ function unflipCards() {
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
+    lockBoard = false;
 }, '1500')
 }
 
