@@ -39,9 +39,7 @@ header h1 {
 /* dropdown menue */
 div.dropdown-menue {
   text-align: right;
-  position: relative;
 }
-
 .dropdown-menue div {
   text-align: left;
 }
@@ -50,13 +48,13 @@ option {
 }
 .dropdown-menue a {
   padding: 0.4em;
+  font-size: x-large;
   text-decoration: none;
   color: yellow;
 }
 .dropdown-menue a:hover {
   color: white;
 }
-
 
 /* Main Styles */
 main {
