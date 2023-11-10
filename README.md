@@ -11,6 +11,8 @@ script:⌨️
   - ✔️ count moves
   - ✔️ win-event
   - get pages for dropdown menue dynamicly
+  - mega mario: play sound
+  - fix dropdown menue in chrome
 <br>
 
 css:🖌️
