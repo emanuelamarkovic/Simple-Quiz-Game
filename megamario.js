@@ -6,7 +6,12 @@ imgMario[0].style.transform = "translateX(0)";
 // matches numbers in style attributes
 const regex = /(?:[^0-9]+)?(\d+)(?:[^0-9]+)?/;
 let marioXPosition = parseInt(imgMario[0].style.transform.match(regex).slice(1));
-
+const marioTheme = new Audio('assets/516010__enviromaniac2__super-mario-bros-theme-techno-loop.mp3')
+marioTheme.addEventListener('ended', function() {
+  this.currentTime = 0;
+  this.play();
+}, false);
+marioTheme.play()
 const stopMario = () => {
     imgMario[0].src = "./assets/mario-stand.gif";
 }
