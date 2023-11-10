@@ -131,10 +131,11 @@ for (let i = 0; i < emojis.length; i++) {
   card.innerHTML = `
     <div class='card-inner'>
       <div class='card-cover'>${shuffledEmojis[i]}</div>
-      <div class='card-back'>?</div>
+      <div class='card-back'>🤯</div>
     </div>
   `;
   memoryBoard.appendChild(card);
 }
 const cards = document.querySelectorAll('.memory-card');
 cards.forEach(card => card.addEventListener('click', flipCard));
+

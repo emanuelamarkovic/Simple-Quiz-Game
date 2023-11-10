@@ -1,4 +1,4 @@
-#memory-board {
+ .shadow-gradient{
   width :90%;
   max-width: 800px;
   height: 25rem;
@@ -8,15 +8,15 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center; 
   justify-content: center;
-  border-radius: 15px;
+  border-radius: 0.2em;
   padding: 4%; 
   transform-style: preserve-3d;
   perspective: 500px;
   margin-bottom: 20px;
-}
+ }
 
 .move-count-display{
   position: relative;
@@ -34,12 +34,12 @@
 .memory-card{
   background-color: yellow;
   width: 20%;
-  height: 4em;
-  border: 1px solid #f1f1f1;
+  height: 6em;
+  border: 1px solid #f1f1f133;
   perspective: 1000px;
   position: relative;
   margin: 2px;
-  border-radius: 15px;
+  border-radius: 0.2em;
 }
 
 .card-inner{
@@ -49,6 +49,7 @@
   transition: transform 1s;
   transform-style: preserve-3d;
   transform-origin: center center;
+  border-radius: 0.2em;
 }
 
 .memory-card.flip .card-inner {
@@ -70,10 +71,13 @@
 }
 
 .card-back{
-  background-color: dodgerblue;
-  color: white;
+  background-color: white;
+  color: green;
+  font-size: 3.5em;
+  font-weight: bolder;
+  text-align: center;
   transform: rotateY(0deg);
-  border-radius: 15px;
+  border-radius: 0.2em;
  }
 
  .memory-card.flip .card-cover {
