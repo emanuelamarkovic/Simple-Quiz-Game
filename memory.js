@@ -101,8 +101,13 @@ function stopTimerAndDisplayWin() {
   //const wonMessage = document.getElementById('won-message');
   wonMessage.style.display = 'block';
   wonMessage.style.fontSize = '20px';
+  wonMessage.style.fontWeight = 'bolder'
+  wonMessage.style.width = '80%';
   wonMessage.style.backgroundColor = 'yellow';
+  wonMessage.style.padding = '0.5rem'
   wonMessage.style.color = 'black';
+  wonMessage.style.position = 'absolute';
+  wonMessage.style.zIndex = '1';
   wonMessage.textContent = `Congratulations 🎆 ! You won in ${seconds} seconds with ${moveCount} moves!`;
 }
 
