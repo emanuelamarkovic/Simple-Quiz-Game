@@ -12,13 +12,19 @@ fetch('burger-icon.svg')
       const options = document.querySelector('.options');
       options.style.display = 'none';
       //console.log(options);
-      const htmlFiles = ['memory.html', 'quizgame.html', 'megamario.html'];
+      const htmlFiles = ['memory.html', 'quizgame.html', 'megamario.html', 'index.html'];
+
       htmlFiles.forEach(htmlFile => {
         console.log('htmlfile ', htmlFile);
         const option = document.createElement('option');
         const linkNameArr = htmlFile.split('.');
-        option.innerHTML = `<a href=${htmlFile}>${linkNameArr[0]}</a>`;
-        options[0].appendChild(option);
+        if (htmlFile === 'index.html') {
+          option.innerHTML = `<a href=./${htmlFile}>start</a>`;
+          options.appendChild(option);
+        } else {
+          option.innerHTML = `<a href=./${htmlFile}>${linkNameArr[0]}</a>`;
+          options.appendChild(option);
+        }
       })
 
     dropdownButton.addEventListener('click', () => {
