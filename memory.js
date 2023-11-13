@@ -23,10 +23,22 @@ let seconds = 0;
 let isTiming = false;
 
 // buttons
+// startButton.addEventListener('click', function() {
+//   startTimer();
+// });
+// resetButton.addEventListener("click", resetGame);
+
 startButton.addEventListener('click', function() {
   startTimer();
+  startButton.style.display = 'none';
+  resetButton.style.display = 'inline-block';
 });
+
 resetButton.addEventListener("click", resetGame);
+function resetGame() {
+  startButton.style.display = 'inline-block';
+  resetButton.style.display = 'none';
+}
 
 // Adding the resetBoard() function - Resetting the game variables for the course of the game
 function resetBoard() {
