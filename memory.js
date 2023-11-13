@@ -33,9 +33,18 @@ startButton.addEventListener('click', function() {
   startButton.style.display = 'none';
   resetButton.style.display = 'inline-block';
 });
+function startTimer() {
+  console.log('startTimer ');
+  isTiming = true;
+  timerInterval = setInterval(() => {
+  seconds++;
+  // ***** why timeout?
+  }, 1000);
+}
 
 resetButton.addEventListener("click", resetGame);
 function resetGame() {
+  console.log('resetGame');
   startButton.style.display = 'inline-block';
   resetButton.style.display = 'none';
 }
@@ -49,13 +58,6 @@ function resetBoard() {
   secondCard = null;
 }
 
-function startTimer() {
-  isTiming = true;
-  timerInterval = setInterval(() => {
-  seconds++;
-}, 1000);
-
-}
 function stopTimer() {
   isTiming = false;
   clearInterval(timerInterval);
@@ -63,19 +65,19 @@ function stopTimer() {
 
 // Updates the display for the moves
 function updateMoveCount() {
-  console.log("updateMoveCount")
+  console.log("updateMoveCount");
   moveCountDisplay.textContent = moveCount;
 }
 
 // Page is reloaded and the game is reset
 function resetGame() {
-  console.log("resetGame")
+  console.log("resetGame");
   window.location.reload();
 }
 
 // The function controls the turning over of cards and checks whether two face-up cards match
 function flipCard() {
-  console.log("flipCard")
+  console.log("flipCard");
   if (lockBoard || this === firstCard) return;
 
   this.classList.add('flip');
@@ -93,12 +95,13 @@ function flipCard() {
 
 // The function controls the turning over of cards and checks whether two face-up cards match.
 function checkForMatch() {
-  console.log("checkForMatch")
+  console.log("checkForMatch");
   moveCount++;
   updateMoveCount();
 
   if (firstCard.innerHTML === secondCard.innerHTML) {
-    disableCards();
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
     cardsMatched += 2;
   if (cardsMatched === emojis.length) stopTimerAndDisplayWin();
   } else {
@@ -116,7 +119,7 @@ function stopTimerAndDisplayWin() {
   wonMessage.style.fontWeight = 'bolder'
   wonMessage.style.width = '80%';
   wonMessage.style.backgroundColor = 'yellow';
-  wonMessage.style.padding = '0.5rem'
+  wonMessage.style.padding = '0.5rem';
   wonMessage.style.color = 'black';
   wonMessage.style.position = 'absolute';
   wonMessage.style.zIndex = '1';
@@ -124,14 +127,15 @@ function stopTimerAndDisplayWin() {
 }
 
 // Deactivating found card pairs
-function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
-  resetBoard();
-}
+//function disableCards() {
+//  firstCard.removeEventListener('click', flipCard);
+//  secondCard.removeEventListener('click', flipCard);
+//  resetBoard();
+//}
 
 // Reversing the cards after a delay - Resetting the game board after reversing the cards
 function unflipCards() {
+  console.log('unflipCards ');
   lockBoard = true;
   setTimeout(() => {
   firstCard.classList.remove('flip');
