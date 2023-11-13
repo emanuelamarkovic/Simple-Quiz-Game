@@ -39,12 +39,15 @@ header h1 {
 /* dropdown menue */
 div.dropdown-menue {
   text-align: right;
+  cursor: pointer;
 }
 .dropdown-menue div {
   text-align: left;
+  cursor: pointer;
 }
 option {
   background-color: #333;
+  cursor: pointer;
 }
 .dropdown-menue a {
   padding: 0.4em;
@@ -67,6 +70,23 @@ main {
   justify-content: space-between;
 }
 
+.text{ font-size: 2rem;
+  text-align: center;
+  margin-top: 4.5rem;
+  margin:4.5rem  0.5rem;
+  padding: 0.8rem;
+}
+
+.text1{
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 0.5rem;
+}
+
+.link-github{color: yellow;
+  cursor: pointer;
+  text-decoration: none;}
+
 /* Shadow Gradient Styles */
 .shadowgradient {
   width: 60%;
@@ -77,6 +97,7 @@ main {
   display: flex;
   position: relative;
   text-align: center;
+  margin-bottom: 0.5em;
 }
 
 .shadowgradient,
@@ -128,7 +149,6 @@ main {
   font-size: 1.5rem;
   height: 33rem;
   box-sizing: border-box;
-  
 }
 
 .box div {
@@ -252,6 +272,12 @@ ul li a i {
   .option {
     font-size: 1rem;
   }
+  text{
+    font-size: 1.5rem;
+  }
+  .text1{
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -264,6 +290,12 @@ ul li a i {
   .option {
     font-size: 1rem;
   }
+  .text{
+  font-size: 1rem;
+}
+.text1{
+  font-size: 1rem;
+}
 }
 @media (max-width: 375px) {
   header {
@@ -282,4 +314,10 @@ ul li a i {
   footer {
     height: 8vh;
   }
+  .text{
+  font-size: 1rem;
+}
+.text1{
+  font-size: 1rem;
+}
 }
