@@ -15,21 +15,24 @@ instructions.style.textAlign = 'center';
 instructions.innerHTML = '<br><p>turn Mario with arrow keys left < or > right</p><br><p>make sure to enable autoplay media in your browser</p>';
 
 const marioTheme = new Audio('assets/516010__enviromaniac2__super-mario-bros-theme-techno-loop.mp3')
+let marioThemePlays = false;
 // loop theme
 marioTheme.addEventListener('ended', () => {
   marioTheme.currentTime = 0;
   marioTheme.play();
 }, false);
-// play theme
-marioTheme.play();
 
 const stopMario = () => {
     imgMario.src = "./assets/mario-stand.gif";
 }
 const moveMario = (event) => {
+  if (!marioThemePlays) {
+    marioTheme.play();
+    marioThemePlays = true;
+  }
   //console.log('keydown!');
   //console.log(event.key);
-  if (imgMario.src !== "./assets/mario-walk.gif") {
+  if (!(imgMario.src = "./assets/mario-walk.gif")) {
     imgMario.src = "./assets/mario-stand.gif";
   };
   if (event.key === 'ArrowLeft') {
