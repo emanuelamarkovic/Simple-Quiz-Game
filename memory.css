@@ -27,18 +27,6 @@
   perspective: 500px;
   margin-bottom: 20px;
 }
-/* styles for start-button */
-#start-button{
-  width: 10%;
-  background-color: yellow;
-  border: none;
-  border-radius: 0.5em;
-  margin: 0.3rem;
-  font-size: bolder;
-  font-size: 1rem;
-  padding: 0.3rem;
-  cursor: pointer;
-}
 
 /* flip */
 .move-count-display{
@@ -92,13 +80,13 @@
 
 .card-cover{
   background-color: #fff;
-  font-size: 4em;
+  font-size: 5rem;
 }
 /* style for card-back */
 .card-back{
   background-color: white;
   color: green;
-  font-size: 4em;
+  font-size: 5rem;
   font-weight: bolder;
   text-align: center;
   transform: rotateY(0deg);
@@ -114,7 +102,7 @@
 }
 
 /* reset-button styles */
-#reset-button{
+#start-button, #reset-button{
   background-color: yellow;
   color: black;
   border: 1px solid black;
@@ -170,8 +158,84 @@
     padding: 2%; 
   }
 
+#start-button,
   #reset-button {
     width: 70%; 
     font-size: 1rem; 
   }
 } 
+
+@media (min-width: 279px){
+  .card-back{ 
+    font-size: 3em;
+  }
+  .card-cover{
+    font-size: 3em;
+  }
+  .boxcards{
+    height: 28rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .card-back {
+    font-size: 2.5em;
+  }
+
+  .card-cover {
+    font-size: 2.5em;
+  }
+
+  .boxcards {
+    height: 35rem;
+  }
+
+  .memory-card {
+    width: 40%;
+    height: 8rem;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  #memory-board {
+    width: 80%;
+  }
+
+  #start-button,
+  #reset-button {
+    width: 60%;
+    font-size: 1.2rem;
+  }
+
+/* Media Query for Google Nest Hub Max */
+@media only screen and (min-width: 960px) {
+  .card-back {
+    font-size: 2.5em;
+  }
+
+  .card-cover {
+    font-size: 2.5em;
+  }
+
+  .boxcards {
+    height: 20rem;
+  }
+
+  .memory-card {
+    width: 20%;
+    height: 5rem;
+    font-size: 1.2rem;
+  }
+
+  #memory-board {
+    width: 90%;
+  }
+
+  #start-button,
+  #reset-button {
+    width: 70%;
+    font-size: 1.2rem;
+  }
+}
+
+}
