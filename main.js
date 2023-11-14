@@ -16,7 +16,7 @@ fetch('burger-icon.svg')
 
       htmlFiles.forEach(htmlFile => {
         console.log('htmlfile ', htmlFile);
-        const option = document.createElement('option');
+        const option = document.createElement('div');
         const linkNameArr = htmlFile.split('.');
         if (htmlFile === 'index.html') {
           option.innerHTML = `<a href=./${htmlFile}>start</a>`;
@@ -28,10 +28,10 @@ fetch('burger-icon.svg')
       })
 
     dropdownButton.addEventListener('click', () => {
-      if (options[0].style.display === 'block') {
-        options[0].style.display = 'none';
+      if (options.style.display === 'block') {
+        options.style.display = 'none';
       } else {
-        options[0].style.display = 'block';
+        options.style.display = 'block';
       }
     });
 })

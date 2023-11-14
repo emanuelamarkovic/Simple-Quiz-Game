@@ -33,6 +33,13 @@ startButton.addEventListener('click', function() {
   startButton.style.display = 'none';
   resetButton.style.display = 'inline-block';
 });
+resetButton.addEventListener("click", resetGame);
+function resetGame() {
+  console.log('resetGame');
+  startButton.style.display = 'inline-block';
+  resetButton.style.display = 'none';
+}
+
 function startTimer() {
   console.log('startTimer ');
   isTiming = true;
@@ -41,14 +48,6 @@ function startTimer() {
   // ***** why timeout?
   }, 1000);
 }
-
-resetButton.addEventListener("click", resetGame);
-function resetGame() {
-  console.log('resetGame');
-  startButton.style.display = 'inline-block';
-  resetButton.style.display = 'none';
-}
-
 // Adding the resetBoard() function - Resetting the game variables for the course of the game
 function resetBoard() {
   console.log("resetBoard")
@@ -127,11 +126,11 @@ function stopTimerAndDisplayWin() {
 }
 
 // Deactivating found card pairs
-//function disableCards() {
-//  firstCard.removeEventListener('click', flipCard);
-//  secondCard.removeEventListener('click', flipCard);
-//  resetBoard();
-//}
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+  resetBoard();
+}
 
 // Reversing the cards after a delay - Resetting the game board after reversing the cards
 function unflipCards() {
@@ -159,4 +158,3 @@ for (let i = 0; i < emojis.length; i++) {
 }
 const cards = document.querySelectorAll('.memory-card');
 cards.forEach(card => card.addEventListener('click', flipCard));
-
