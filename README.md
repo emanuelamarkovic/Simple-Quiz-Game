@@ -11,15 +11,16 @@ script:⌨️
   - ✔️ count moves
   - ✔️ win-event
   - get pages for dropdown menue dynamicly
-  - mega mario: play sound (on action)
-  - fix dropdown menue in chrome
+  - ✔️ mega mario: play sound (on action)
+  - ✔️ fix dropdown menue in chrome
+  - bring drop-down to front
 <br>
 
 css:🖌️
   - ✔️ style board
   - ✔️ style front and back of cards
   - flip-animation
-  - style dropdown menue
+  - ✔️ style dropdown menue
   - footer: make coherent across all pages
   - firefox: make cursor disappear
 <br>
