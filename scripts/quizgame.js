@@ -1,4 +1,4 @@
-import { questions } from './modules/Questions.js';
+import { questions } from '../modules/Questions.js';
 // --------- variables -------------
 let score = 0;
 let currentQuestionIndex = 0;

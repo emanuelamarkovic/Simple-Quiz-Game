@@ -3,7 +3,7 @@ const header = document.querySelector('header');
 const dropdownButton = document.createElement('div');
 dropdownButton.classList = 'dropdown-menue';
 // load burger menue icon
-fetch('burger-icon.svg')
+fetch('../assets/burger-icon.svg')
     .then(response => response.text())
     .then(svgData => {
       svgData = svgData.replace('<svg', '<svg fill="#ffff00"');
@@ -19,10 +19,10 @@ fetch('burger-icon.svg')
         const option = document.createElement('div');
         const linkNameArr = htmlFile.split('.');
         if (htmlFile === 'index.html') {
-          option.innerHTML = `<a href=./${htmlFile}>start</a>`;
+          option.innerHTML = `<a href=../${htmlFile}>start</a>`;
           options.appendChild(option);
         } else {
-          option.innerHTML = `<a href=./${htmlFile}>${linkNameArr[0]}</a>`;
+          option.innerHTML = `<a href=../pages/${htmlFile}>${linkNameArr[0]}</a>`;
           options.appendChild(option);
         }
       })

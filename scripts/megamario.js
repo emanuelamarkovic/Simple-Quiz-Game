@@ -14,7 +14,7 @@ instructions = document.createElement('div');
 instructions.style.textAlign = 'center';
 instructions.innerHTML = '<br><p>turn Mario with arrow keys left < or > right</p><br><p>make sure to enable autoplay media in your browser</p>';
 
-const marioTheme = new Audio('assets/516010__enviromaniac2__super-mario-bros-theme-techno-loop.mp3')
+const marioTheme = new Audio('../assets/516010__enviromaniac2__super-mario-bros-theme-techno-loop.mp3')
 let marioThemePlays = false;
 // loop theme
 marioTheme.addEventListener('ended', () => {
@@ -23,7 +23,7 @@ marioTheme.addEventListener('ended', () => {
 }, false);
 
 const stopMario = () => {
-    imgMario.src = "./assets/mario-stand.gif";
+    imgMario.src = "../assets/mario-stand.gif";
 }
 const moveMario = (event) => {
   if (!marioThemePlays) {
@@ -32,8 +32,8 @@ const moveMario = (event) => {
   }
   //console.log('keydown!');
   //console.log(event.key);
-  if (!(imgMario.src = "./assets/mario-walk.gif")) {
-    imgMario.src = "./assets/mario-stand.gif";
+  if (!(imgMario.src = "../assets/mario-walk.gif")) {
+    imgMario.src = "../assets/mario-stand.gif";
   };
   if (event.key === 'ArrowLeft') {
     // move left
