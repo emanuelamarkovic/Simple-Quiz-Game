@@ -22,7 +22,7 @@ dropdownButton.classList = 'dropdown-menue';
           option.innerHTML = `<a href=../${htmlFile}>start</a>`;
           options.appendChild(option);
         } else {
-          option.innerHTML = `<a href=../pages/${htmlFile}>${linkNameArr[0]}</a>`;
+          option.innerHTML = `<a href=./pages/${htmlFile}>${linkNameArr[0]}</a>`;
           options.appendChild(option);
         }
       })
