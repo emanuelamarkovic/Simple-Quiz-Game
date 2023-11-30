@@ -1,12 +1,12 @@
 // --------- drop-down -------------
 const header = document.querySelector('header');
+header.style.position = 'relative';
+header.style.zIndex = '2';
 const dropdownButton = document.createElement('div');
 dropdownButton.classList = 'dropdown-menue';
 // load burger menue icon
-fetch('../assets/burger-icon.svg')
-    .then(response => response.text())
-    .then(svgData => {
-      svgData = svgData.replace('<svg', '<svg fill="#ffff00"');
+
+      svgData = 'X';
       dropdownButton.innerHTML = `<h2 class='dropdown-menue'>${svgData}</h2><div class="options"></div`;
       header.appendChild(dropdownButton);
       const options = document.querySelector('.options');
@@ -33,5 +33,5 @@ fetch('../assets/burger-icon.svg')
       } else {
         options.style.display = 'block';
       }
-    });
+
 })
