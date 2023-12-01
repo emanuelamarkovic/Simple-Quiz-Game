@@ -1,4 +1,5 @@
 # 🎮✨🌈 a simple quiz game 🕹️👾💥
+<p>This is a small collection of javascript games. Play 👉 <a href="https://annagraphic.github.io/simple-quiz-game/">here</a> and enjoy!</p>
 
 ## TODOs:
 memory game: <br>
