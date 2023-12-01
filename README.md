@@ -13,7 +13,7 @@ script:⌨️
   - get pages for dropdown menue dynamicly
   - ✔️ mega mario: play sound (on action)
   - ✔️ fix dropdown menue in chrome
-  - bring drop-down to front
+  - ✔️ bring drop-down to front
 <br>
 
 css:🖌️
@@ -21,7 +21,7 @@ css:🖌️
   - ✔️ style front and back of cards
   - flip-animation
   - ✔️ style dropdown menue
-  - footer: make coherent across all pages
+  - ✔️ footer: make coherent across all pages
   - firefox: make cursor disappear
 <br>
 
