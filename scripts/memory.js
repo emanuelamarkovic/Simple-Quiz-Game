@@ -23,10 +23,6 @@ let seconds = 0;
 let isTiming = false;
 
 // buttons
-// startButton.addEventListener('click', function() {
-//   startTimer();
-// });
-// resetButton.addEventListener("click", resetGame);
 
 startButton.addEventListener('click', function() {
   startTimer();
